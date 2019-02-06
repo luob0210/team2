@@ -147,5 +147,9 @@ public User(String name,int sex){
         
         tx.commit();
     }
+    
+    public void up() {
+        
+    }
    
 }
