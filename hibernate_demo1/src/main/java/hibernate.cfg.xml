@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+  <hibernate-configuration>
+  <!-- 配置sessionfactory创建session对象 -->
+    <session-factory>
+        <!-- 第一部分  配置连接对象 -->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/lbdatabase?useUnicode=true&amp;characterEncoding=utf-8</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">123</property>
+        <!-- 配置数据库方言 -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        
+        <!-- 第二部分   可选   -->
+        <!-- 配置c3p0连接池供应商 -->
+        <!-- <property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property> -->
+        <!-- 控制台显示sql -->
+        <property name="hibernate.show_sql">true</property>
+        <!-- 控制台格式化sql -->
+        <property name="hibernate.format_sql">false</property>
+        <!-- 把session和线程绑定，实现一个线程只有一个session -->
+        <property name="hibernate.current_session_context_class">thread</property>
+        <!-- 配置hibernate采用何种方式生成ddl语句 -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!-- SQL结构化查询语言 一共分为6部分
+            DDL: DATA Definition Language  create alter 数据定义语言
+            DML: Data Manipulation Language  数据管理语言  增删改查
+            DQL: Data Query Language  数据查询语言 select 
+            DCL: Data Control Language   数据控制语言  授权
+            CCL: Cursor Control Language   游标控制语言
+            TPL: Transaction Processing Language  事物处理语言  提交，回滚，开始
+       
+         -->
+        <!-- 第三部分  加载映射文件 -->
+        <mapping resource="cn/sxt/vo/Custmer.hbm.xml"/>
+    </session-factory>
+  </hibernate-configuration>
